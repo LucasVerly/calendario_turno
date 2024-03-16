@@ -67,59 +67,6 @@ document.addEventListener('DOMContentLoaded',function(){
         let firstDayOfWeek = new Date(ano,mes,1).getDay()-1;
         let getLastDayThisMonth = new Date(ano, mes + 1, 0).getDate();
 
-        /*const sequenciaA = [
-            n = "noturno",
-            n = "noturno",
-            n = "noturno",
-            f = "folga",
-            f = "folga",
-            f = "folga",
-            d = "diurno",
-            d = "diurno",
-            d = "diurno",
-        ];
-
-        const sequenciaB = [
-            d = "diurno",
-            d = "diurno",
-            d = "diurno",
-            n = "noturno",
-            n = "noturno",
-            n = "noturno",
-            f = "folga",
-            f = "folga",
-            f = "folga",
-        ];
-
-        const sequenciaC = [
-            f = "folga",
-            f = "folga",
-            f = "folga",
-            d = "diurno",
-            d = "diurno",
-            d = "diurno",
-            n = "noturno",
-            n = "noturno",
-            n = "noturno",
-        ];
-        console.log(firstDayOfWeek);
-        console.log(getLastDayThisMonth);
-
-        for (var i = -firstDayOfWeek,index = 0; i < (42-firstDayOfWeek); i++,index++) {
-            let dayTable = tableDays.getElementsByTagName('td')[index];
-                let turno = sequenciaA[index % sequenciaA.length];
-                dayTable.classList.add(turno);  
-                if (i < 1){
-                    dayTable.classList.remove("diurno","noturno","folga");
-                    dayTable.classList.add('mes-anterior');
-                }
-                if(i > getLastDayThisMonth){
-                    dayTable.classList.remove("diurno","noturno","folga");
-                    dayTable.classList.add('proximo-mes');
-                } 
-        }*/  
-         
-
         const cssEnumeradas = [
             m ="mes-anterior",
             d = "diurno",

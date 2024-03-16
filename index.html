@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Turno</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/js/script.js"></script>
+</head>
+<body>
+    <div class="conteudo">
+        <div class="turnos">
+            <form id="form">
+                <h3>Escolha a letra do turno</h3>
+                <div class="form-group" id="turnos">
+                    <input type="radio" class="radio" id="letraA" name="turno" value="1">
+                    <label for="letraA">Letra - A</label>
+                    <input type="radio" class="radio" id="letraB" name="turno" value="2">
+                    <label for="letraB">Letra - B</label>
+                    <input type="radio" class="radio" id="letraC" name="turno" value="3">
+                    <label for="letraC">Letra - C</label>
+                </div>
+            </form>
+            <div class="btn">
+                <button id="btn-salvar" type="submit" class="btn-filtrar">Filtrar</button>
+            </div>
+        </div>
+        <div class="calendario">
+            <header>
+                <h2 id="mes"></h2>
+                <h2 id="ano"></h2>
+                <a class="btn-ant" id="btn-ant"> < </a>
+                <a class="btn-pro" id="btn-prev"> > </a>
+            </header>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Dom</td>
+                        <td>Seg</td>
+                        <td>Ter</td>
+                        <td>Qua</td>
+                        <td>Qui</td>
+                        <td>Sex</td>
+                        <td>Sab</td>
+                    </tr>
+                </thead>
+                <tbody id="dias">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                </tbody>
+            </table>
+            <footer>
+                <h3>Legenda</h3>
+                <div class="legenda">
+                    <input type="checkbox" class="legenda-diurno">
+                    <label for="">7 ás 16</label>
+                    <input type="checkbox" class="legenda-noturno">
+                    <label for="">14 ás 23</label>
+                    <input type="checkbox" class="legenda-folga">
+                    <label for="">Folga</label>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

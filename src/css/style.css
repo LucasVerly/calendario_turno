@@ -1,0 +1,266 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif, ;
+}
+
+body {
+    background: #f1f1f1;
+}
+
+.turnos {
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 15px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.form-group label {
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.radio {
+    cursor: pointer;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid #00addf;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio:before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background: #00addf;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+}
+
+.radio:checked:before {
+    opacity: 1;
+}
+
+.radio:focus {
+    box-shadow: 0 0 5px rgba(0, 173, 223, 0.8);
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.btn-filtrar {
+    padding: 3px 30px;
+    font-size: 13px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid #00addf;
+}
+
+.btn-filtrar:hover {
+    background-color: #00addf;
+    color: white;
+}
+
+.calendario {
+    text-align: center;
+}
+
+.conteudo {
+    left: 50%;
+    margin: 0 0 0 -200px;
+    position: absolute;
+    width: 400px;
+}
+
+.conteudo .calendario header {
+    position: relative;
+}
+
+h2 {
+    display: inline;
+    margin-top: 20px;
+    font-size: 32px;
+    text-transform: uppercase;
+    padding: 0 5px;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-ant, .btn-pro {
+    position: absolute;
+    top: 50%;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    margin-top: -16px;
+    border: 2px solid #cbd1d2;
+    border-radius: 50%;
+    color: #cbd1d2;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-ant {
+    left: 50px;
+}
+
+.btn-pro {
+    right: 50px;
+}
+
+.btn-ant:hover, .btn-pro:hover {
+    background: #cbd1d2;
+    color: #f9f9f9;
+}
+
+.calendario table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.calendario thead {
+    background: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.calendario td {
+    border: 1px solid #cbd1d2;
+    height: 71.4px;
+    text-align: center;
+    width: 71.4px;
+}
+
+.calendario tbody td{
+    cursor: pointer;
+}
+
+.calendario tbody td:hover{
+    background: rgba(0, 173, 223, 0.8);
+    color: #f9f9f9;
+}
+
+.calendario table .dia-atual {
+    background: #00addf;
+    color: #f9f9f9;
+}
+
+.calendario table .folga {
+    background: #ED4AA5;
+    color: #f9f9f9;
+}
+
+.calendario table .diurno {
+    background: #FAE816;
+    color: black;
+}
+
+.calendario table .noturno {
+    background: #1627B3;
+    color: #f9f9f9;
+}
+
+.calendario .mes-anterior, .calendario .proximo-mes {
+    color: #cbd1d2;
+}
+
+.calendario .mes-anterior:hover, .calendario .proximo-mes:hover {
+    background: #98a0a0;
+}
+
+.event {
+    position: relative;
+}
+
+.event:after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    left: 50%;
+    bottom: 7px;
+    margin: -3.5px 0 0 -3.5px;
+    background: #00addf;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.event:hover::after {
+    background: #f9f9f9;
+}
+
+.event.dia-atual:after {
+    background: #f9f9f9;
+}
+
+.calendario .btn-desabilitado {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+footer h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+footer input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 1px solid;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+footer label {
+    font-size: 15px;
+    text-transform: uppercase;
+    padding-left: 8px;
+    padding-right: 15px;
+}
+
+.legenda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legenda-diurno {
+    background: #FAE816;
+}
+
+.legenda-noturno {
+    background: #1627B3;
+}
+
+.legenda-folga {
+    background: #ED4AA5;
+}

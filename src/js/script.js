@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     const botao_proximo = document.getElementById('btn-prev');
     const botao_anterior = document.getElementById('btn-ant');
+    botao_anterior.classList.add('btn-desabilitado');
 
     botao_proximo.onclick = function(){
         mes++;
@@ -61,24 +62,22 @@ document.addEventListener('DOMContentLoaded',function(){
 
     var form = document.querySelector('#form');
     var botao = document.querySelector('#btn-salvar');
+
     botao.addEventListener('click', function(event) {
         event.preventDefault();
 
-        let firstDayOfWeek = new Date(ano,mes,1).getDay()-1;
-        let getLastDayThisMonth = new Date(ano, mes + 1, 0).getDate();
 
         const cssEnumeradas = [
             m ="mes-anterior",
             d = "diurno",
             n = "noturno",
             f = "folga",
-            p = "proximo-mes"
         ];
         //----------------------------------------------- Janeiro --------------------------------------------
         if (mes == 0 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
+                m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 0 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
+                m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -96,7 +95,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 0 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
+                m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -107,7 +106,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 1 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
+                m, m, m, m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -116,7 +115,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 1 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
+                m, m, m, m, m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -125,7 +124,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 1 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
+                m, m, m, m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -136,7 +135,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 2 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
+                m, m, m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -145,7 +144,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 2 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
+                m, m, m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -154,7 +153,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 2 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
+                m, m, m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -165,7 +164,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 3 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
+                m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -174,7 +173,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 3 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
+                m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -183,7 +182,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 3 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
+                m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -194,7 +193,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 4 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
+                m, m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -203,7 +202,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 4 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f
+                m, m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -212,7 +211,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 4 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
+                m, m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 5 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
+                f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -232,7 +231,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 5 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
+                n, d, d, d, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -241,7 +240,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 5 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f
+                d, f, f, f, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -252,7 +251,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 6 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
+                m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -261,7 +260,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 6 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
+                m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -270,7 +269,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 6 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
+                m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -281,7 +280,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 7 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
+                m, m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -290,7 +289,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 7 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
+                m, m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -299,7 +298,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 7 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
+                m, m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -310,7 +309,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 8 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
+                m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -319,7 +318,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 8 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
+                m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -328,7 +327,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 8 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
+                m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -339,7 +338,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 9 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
+                m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -348,7 +347,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 9 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f 
+                m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n 
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -357,7 +356,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 9 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
+                m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -368,7 +367,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 10 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                m, m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
+                m, m, m, m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -377,7 +376,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 10 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                m, m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
+                m, m, m, m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -386,7 +385,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 10 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                m, m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f
+                m, m, m, m, m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -397,7 +396,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (mes == 11 && form.turno.value == 1) {
             limpaMes();
             const classes = [
-                f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d
+                m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -406,7 +405,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 11 && form.turno.value == 2){
             limpaMes();
             const classes = [
-                n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f
+                m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];
@@ -415,7 +414,7 @@ document.addEventListener('DOMContentLoaded',function(){
         } else if(mes == 11 && form.turno.value == 3){
             limpaMes();
             const classes = [
-                d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n
+                m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f
             ];
             for (let x = 0; x < 42; x++) {
                 let dayTable = tableDays.getElementsByTagName('td')[x];

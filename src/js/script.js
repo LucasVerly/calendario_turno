@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded',function(){
     const botao_proximo = document.getElementById('btn-prev');
     const botao_anterior = document.getElementById('btn-ant');
     botao_anterior.classList.add('btn-desabilitado');
+    var form = document.querySelector('#form');
+    var botao = document.querySelector('#btn-salvar');
 
     botao_proximo.onclick = function(){
         mes++;
@@ -47,7 +49,8 @@ document.addEventListener('DOMContentLoaded',function(){
         }
         GetyDaysCalendar(mes, ano);
         botao_anterior.classList.remove('btn-desabilitado');
-        limpaMes();
+        //limpaMes();
+        botao.click();
     }
 
     botao_anterior.onclick = function(){
@@ -57,11 +60,11 @@ document.addEventListener('DOMContentLoaded',function(){
         }
         GetyDaysCalendar(mes, ano);
         botao_proximo.classList.remove('btn-desabilitado');
-        limpaMes();
+        //limpaMes();
+        botao.click();
     }
 
-    var form = document.querySelector('#form');
-    var botao = document.querySelector('#btn-salvar');
+    
 
     botao.addEventListener('click', function(event) {
         event.preventDefault();

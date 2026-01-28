@@ -1,16 +1,16 @@
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', function () {
     const monthsBR = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
     const tableDays = document.getElementById('dias');
 
-    function GetyDaysCalendar(mes,ano){
+    function GetyDaysCalendar(mes, ano) {
         document.getElementById('mes').innerHTML = monthsBR[mes];
         document.getElementById('ano').innerHTML = ano;
 
-        let firstDayOfWeek = new Date(ano,mes,1).getDay()-1;
+        let firstDayOfWeek = new Date(ano, mes, 1).getDay() - 1;
         let getLastDayThisMonth = new Date(ano, mes + 1, 0).getDate();
 
-        for (var i = -firstDayOfWeek,index = 0; i < (42-firstDayOfWeek); i++,index++){
-            let dt = new Date(ano,mes,i);
+        for (var i = -firstDayOfWeek, index = 0; i < (42 - firstDayOfWeek); i++, index++) {
+            let dt = new Date(ano, mes, i);
             let dtNow = new Date();
             let dayTable = tableDays.getElementsByTagName('td')[index];
             dayTable.classList.remove('mes-anterior');
@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded',function(){
             dayTable.classList.remove('dia-atual');
             dayTable.innerHTML = dt.getDate();
 
-            if (dt.getFullYear() == dtNow.getFullYear() && dt.getMonth() == dtNow.getMonth() && dt.getDate() == dtNow.getDate()){
+            if (dt.getFullYear() == dtNow.getFullYear() && dt.getMonth() == dtNow.getMonth() && dt.getDate() == dtNow.getDate()) {
                 dayTable.classList.add('dia-atual')
             }
-            if (i < 1){
+            if (i < 1) {
                 dayTable.classList.add('mes-anterior')
             }
-            if(i > getLastDayThisMonth){
+            if (i > getLastDayThisMonth) {
                 dayTable.classList.add('proximo-mes')
             }
         }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded',function(){
     let now = new Date();
     let mes = now.getMonth();
     let ano = now.getFullYear();
-    let firstDayOfWeek = new Date(ano,mes,1).getDay()-1;
+    let firstDayOfWeek = new Date(ano, mes, 1).getDay() - 1;
     GetyDaysCalendar(mes, ano);
 
     const botao_proximo = document.getElementById('btn-prev');
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded',function(){
     var form = document.querySelector('#form');
     var botao = document.querySelector('#btn-salvar');
 
-    botao_proximo.onclick = function(){
+    botao_proximo.onclick = function () {
         mes++;
-        if(mes > 10){
+        if (mes > 10) {
             botao_proximo.classList.add('btn-desabilitado');
         }
         GetyDaysCalendar(mes, ano);
@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded',function(){
         botao.click();
     }
 
-    botao_anterior.onclick = function(){
+    botao_anterior.onclick = function () {
         mes--;
-        if(mes < 1){
+        if (mes < 1) {
             botao_anterior.classList.add('btn-desabilitado');
         }
         GetyDaysCalendar(mes, ano);
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded',function(){
         botao.click();
     }
 
-    
 
-    botao.addEventListener('click', function(event) {
+    //Metodo antigo 
+    /*botao.addEventListener('click', function(event) {
         event.preventDefault();
 
 
@@ -424,12 +424,173 @@ document.addEventListener('DOMContentLoaded',function(){
                 dayTable.classList.add(classes[x]);
             }
         }
+    });*/
+
+    botao.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const cssEnumeradas = [
+            m = "mes-anterior",
+            d = "diurno",
+            n = "noturno",
+            f = "folga",
+        ];
+
+        function aplicarTurno(classes) {
+            for (let x = 0; x < classes.length; x++) {
+                tableDays.getElementsByTagName('td')[x].classList.add(classes[x]);
+            }
+        }
+        //----------------------------------------------- Janeiro --------------------------------------------
+        if (mes == 0) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
+                2: [m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f],
+                3: [m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        // ------------------------------------------- Fevereiro ---------------------------------------------
+        if (mes == 1) {
+            limpaMes();
+
+            const turnos = {
+                1: [d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d],
+                2: [f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f],
+                3: [n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //------------------------------------------------ Março --------------------------------------------
+        if (mes == 2) {
+            limpaMes();
+
+            const turnos = {
+                1: [d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n],
+                2: [f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d],
+                3: [n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //--------------------------------------------- Abril ------------------------------------------------
+        if (mes == 3) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f],
+                2: [m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n],
+                3: [m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //--------------------------------------------- Maio ------------------------------------------------
+        if (mes == 4) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
+                2: [m, m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
+                3: [m, m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //--------------------------------------------- Junho ------------------------------------------------
+        if (mes == 5) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f],
+                2: [m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
+                3: [m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //--------------------------------------------- Julho ------------------------------------------------
+        if (mes == 6) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d],
+                2: [m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n],
+                3: [m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //--------------------------------------------- Agosto ------------------------------------------------
+        if (mes == 7) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, m, m, m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n],
+                2: [m, m, m, m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f],
+                3: [m, m, m, m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //-------------------------------------------- Setembro -----------------------------------------------
+        if (mes == 8) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f],
+                2: [m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d],
+                3: [m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //-------------------------------------------- Outubro -----------------------------------------------
+        if (mes == 9) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
+                2: [m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f],
+                3: [m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //-------------------------------------------- Novembro -----------------------------------------------
+        if (mes == 10) {
+            limpaMes();
+
+            const turnos = {
+                1: [n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f],
+                2: [f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
+                3: [d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
+        //-------------------------------------------- Dezembro -----------------------------------------------
+        if (mes == 11) {
+            limpaMes();
+
+            const turnos = {
+                1: [m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
+                2: [m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
+                3: [m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f]
+            };
+
+            aplicarTurno(turnos[form.turno.value]);
+        }
     });
 
-    function limpaMes () {
-        for (var y = 0; y < 12; y++){
-            if (mes == y){
-                for(var x = 0; x < 42 ;x++){
+    function limpaMes() {
+        for (var y = 0; y < 12; y++) {
+            if (mes == y) {
+                for (var x = 0; x < 42; x++) {
                     let day = tableDays.getElementsByTagName('td')[x];
                     day.classList.remove('diurno', 'noturno', 'folga');
                 }
@@ -438,4 +599,3 @@ document.addEventListener('DOMContentLoaded',function(){
     }
 });
 
-        

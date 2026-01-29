@@ -8,6 +8,12 @@ body {
     background: #f1f1f1;
 }
 
+.picture {
+    background-image: url(../img/PAM_4582.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .turnos {
     text-align: center;
     text-transform: uppercase;
@@ -173,16 +179,19 @@ h2 {
 .calendario table .folga {
     background: #ED4AA5;
     color: #f9f9f9;
+    opacity: 0.35;
 }
 
 .calendario table .diurno {
     background: #FAE816;
     color: black;
+    opacity: 0.35;
 }
 
 .calendario table .noturno {
     background: #1627B3;
     color: #f9f9f9;
+    opacity: 0.35;
 }
 
 .calendario .mes-anterior, .calendario .proximo-mes {

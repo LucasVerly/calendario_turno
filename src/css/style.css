@@ -264,12 +264,15 @@ footer label {
 
 .legenda-diurno {
     background: #FAE816;
+    opacity: 0.35;
 }
 
 .legenda-noturno {
     background: #1627B3;
+    opacity: 0.35;
 }
 
 .legenda-folga {
     background: #ED4AA5;
+    opacity: 0.35;
 }

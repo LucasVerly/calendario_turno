@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 2: [m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f],
                 3: [m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n]
             };
-
+            
             aplicarTurno(turnos[form.turno.value]);
         }
     });

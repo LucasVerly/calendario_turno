@@ -519,8 +519,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const turnos = {
                 1: [m, m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d],
-                2: [m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n],
-                3: [m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f]
+                2: [m, m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f],
+                3: [m, m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n]
             };
 
             aplicarTurno(turnos[form.turno.value]);
@@ -531,8 +531,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const turnos = {
                 1: [m, m, m, m, m, m, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n],
-                2: [m, m, m, m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f],
-                3: [m, m, m, m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d]
+                2: [m, m, m, m, m, m, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d],
+                3: [m, m, m, m, m, m, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f]
             };
 
             aplicarTurno(turnos[form.turno.value]);
@@ -543,8 +543,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const turnos = {
                 1: [m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f],
-                2: [m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d],
-                3: [m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n]
+                2: [m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n],
+                3: [m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d]
             };
 
             aplicarTurno(turnos[form.turno.value]);
@@ -555,8 +555,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const turnos = {
                 1: [m, m, m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
-                2: [m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f],
-                3: [m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d]
+                2: [m, m, m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
+                3: [m, m, m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f]
             };
 
             aplicarTurno(turnos[form.turno.value]);
@@ -567,8 +567,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const turnos = {
                 1: [n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f],
-                2: [f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
-                3: [d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n]
+                2: [d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
+                3: [f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d]
             };
 
             aplicarTurno(turnos[form.turno.value]);
@@ -578,9 +578,9 @@ document.addEventListener('DOMContentLoaded', function () {
             limpaMes();
 
             const turnos = {
-                1: [m, m, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d],
-                2: [m, m, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n],
-                3: [m, m, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f]
+                1: [m, m, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d],
+                2: [m, m, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f],
+                3: [m, m, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n, n, f, f, f, d, d, d, n, n]
             };
 
             aplicarTurno(turnos[form.turno.value]);
